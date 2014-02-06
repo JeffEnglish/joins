@@ -1,10 +1,17 @@
+/*
+    Example of joining two arrays using a custom merge function. The custom
+    merge function will return a record containing selected fields from the
+    two joined records.
+
+    This example performs all of the available join operations.
+ */
 var joins = require('../joins');
 
 (function testJoins() {
     var people = [
-        { name: 'Joe Smith', accountId: 1 },
-        { name: 'Julie Jones', accountId: 2 },
-        { name: 'Mark Davis', accountId: 3 }
+        { firstName: 'Joe', lastName: 'Smith', accountId: 1 },
+        { firstName: 'Julie', lastName: 'Jones', accountId: 2 },
+        { firstName: 'Mark', lastName: 'Davis', accountId: 3 }
     ];
 
     var property = [
@@ -31,9 +38,8 @@ var joins = require('../joins');
         console.log(j);
         result = joins[j](people, property, 'accountId', 'pid', function(peop, prop) {
             return {
-                accountId: peop.accountId,
-                propertId: prop.pid,
-                accountRep: peop.name,
+	            accountId: peop.accountId || prop.pid,
+                fullName: peop.firstName ? (peop.firstName + ' ' + peop.lastName) : undefined,
                 address: prop.loc
             };
         });
