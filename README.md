@@ -28,7 +28,7 @@ Call one of the join functions passing the left-hand and right-hand arrays:
 
 ## Examples
 
-- [all joins](https://github.com/JeffEnglish/joins/examples/alljoins.js)
+- [all joins](https://github.com/JeffEnglish/joins/blob/master/examples/allJoins.js)
 
 ## License
 
