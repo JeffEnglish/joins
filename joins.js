@@ -141,7 +141,7 @@ function defaultMerge(left, right) {
  */
 exports.innerJoin = function(left, right, leftKey, rightKey, merge) {
     return leftIterate(left, right, leftKey, rightKey, function(left, right) {
-        if (left && right && (left[leftKey] == right[rightKey])) {
+        if (left && right) {
             return (merge || defaultMerge)(left, right);
         }
     });

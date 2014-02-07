@@ -38,7 +38,7 @@ var joins = require('../joins');
         console.log(j);
         result = joins[j](people, property, 'accountId', 'pid', function(peop, prop) {
             return {
-	            accountId: peop.accountId || prop.pid,
+                accountId: peop.accountId || prop.pid,
                 fullName: peop.firstName ? (peop.firstName + ' ' + peop.lastName) : undefined,
                 address: prop.loc
             };
